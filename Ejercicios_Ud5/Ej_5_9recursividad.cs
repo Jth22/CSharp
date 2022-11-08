@@ -26,7 +26,7 @@ class EJ5_9
 		case "1" : Ejericio5_9_1(); break;
 		case "2" : Ejericio5_9_2(); break;
 		case "3" : Ejericio5_9_3(); break;
-		case "4" : Ejericio5_9_3(); break;
+		case "4" : Ejericio5_9_4(); break;
 		case "5" : break;
 		case "6" : break;
 		case "7" : break;
@@ -132,16 +132,29 @@ class EJ5_9
 	 * (por ejemplo, si conoces la suma de los 6 primeros elementos y el
 	 * valor del séptimo elemento, cómo podrías emplear esta información
 	 * para conocer la suma de los 7 primeros).*/
-	const int CAPACIDAD = 10 ;
-	int[] v1 = new int[CAPACIDAD];
+	const int CAPACIDAD = 5 ;
+	int[] v1 = new int [CAPACIDAD];
 	Random rm = new Random();
-	int inicio = 0;
+	int inicio = 0, final = v1.Length-1;
 	
 	for (int i = 0 ; i < v1.Length ; i++)
 	    v1[i] = rm.Next(1,15);
 	    
+	int result = Sumar(v1,inicio,final);
+	Console.WriteLine("Los elementos del array son: "++);
+	for(int i = 0; i < v1.Length ; i++)
+	    Console.Write(v1[i]+ " ");
+	    
+	Console.WriteLine();
+	Console.WriteLine("La suma de los elementos del vector son: " +result);
 	
+    }
+    static int Sumar(int[] v1, int inicio, int final)
+    {
+	if (inicio == final)
+	    return v1[final];
 	
+	return v1[inicio]+ Sumar(v1, (inicio+1), final);
     }
     static void Ejericio5_9_5()
     {
@@ -162,7 +175,8 @@ class EJ5_9
     }
     static void Ejericio5_9_7()
     {
-	/*(5.9.7) Crea, tanto de forma recursiva como de forma iterativa, una función diga si una cadena de caracteres es simétrica (un palíndromo). Por ejemplo, "OSO", "RADAR" y "DABALEARROZALAZORRAELABAD" son palíndromos.*/
+	/*(5.9.7) Crea, tanto de forma recursiva como de forma iterativa, una
+	 * función diga si una cadena de caracteres es simétrica (un palíndromo). Por ejemplo, "OSO", "RADAR" y "DABALEARROZALAZORRAELABAD" son palíndromos.*/
     }
     static void Ejericio5_9_8()
     {
